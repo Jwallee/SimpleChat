@@ -12,7 +12,7 @@ const io = socketIO(server);
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
-    rejectUnauthorized: false // Note: Setting this for demo purposes only. In production, you should have a valid SSL setup.
+    rejectUnauthorized: false // Note: Setting this for demo purposes only.
     }
 });
 
@@ -78,6 +78,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+// Socket Connection
 io.on('connection', (socket) => {
     let currentUser = '';
 
